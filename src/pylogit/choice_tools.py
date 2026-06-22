@@ -811,7 +811,7 @@ def create_sparse_mapping(id_array, unique_ids=None):
     assert id_array.ndim == 1
 
     # Figure out which ids in id_array are represented in unique_ids
-    represented_ids = np.in1d(id_array, unique_ids)
+    represented_ids = np.isin(id_array, unique_ids)
     # Determine the number of rows in id_array that are in unique_ids
     num_non_zero_rows = represented_ids.sum()
     # Figure out the dimensions of the resulting sparse matrix
@@ -1210,7 +1210,7 @@ def convert_long_to_wide(long_data,
             # Calculate the relevant column indices for
             # the specified subset of alternatives
             relevant_alt_ids = subset_specific_vars[col]
-            relevant_col_idx = np.where(np.in1d(all_alternatives,
+            relevant_col_idx = np.where(np.isin(all_alternatives,
                                                 relevant_alt_ids))[0]
         else:
             relevant_col_idx = None

@@ -736,7 +736,7 @@ class MixedLogitCalculations(unittest.TestCase):
         # previously recorded choices for.
         ##########
         # Note rel_old_idx should be np.array([T, T, T, T, T, T, F, F, F])
-        rel_old_idx = np.in1d(self.individual_ids, new_obs_ids)
+        rel_old_idx = np.isin(self.individual_ids, new_obs_ids)
         # rel_old_matrix_2d should have shape (6, 3)
         rel_old_matrix_2d = self.fake_design[rel_old_idx, :]
         rel_old_mixing_var = rel_old_matrix_2d[:, -1][:, None]

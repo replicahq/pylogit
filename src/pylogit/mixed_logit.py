@@ -846,12 +846,12 @@ class MixedLogit(base_mcm.MNDC_Model):
 
         # Figure out which long format rows have ids are common to both
         # datasets
-        old_repeat_mixing_id_idx = np.in1d(old_mixing_id_long,
+        old_repeat_mixing_id_idx = np.isin(old_mixing_id_long,
                                            orig_order_unique_ids_new)
         # Figure out which unique ids are in both datasets
-        old_unique_mix_id_repeats = np.in1d(orig_order_unique_ids_old,
+        old_unique_mix_id_repeats = np.isin(orig_order_unique_ids_old,
                                             orig_order_unique_ids_new)
-        new_unique_mix_id_repeats = np.in1d(orig_order_unique_ids_new,
+        new_unique_mix_id_repeats = np.isin(orig_order_unique_ids_new,
                                             orig_order_unique_ids_old)
 
         # Get the 2d design matrix used to estimate the model, and filter it

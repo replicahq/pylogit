@@ -294,7 +294,7 @@ def ensure_resampled_obs_ids_in_df(resampled_obs_ids, orig_obs_id_array):
     -------
     None.
     """
-    if not np.in1d(resampled_obs_ids, orig_obs_id_array).all():
+    if not np.isin(resampled_obs_ids, orig_obs_id_array).all():
         msg =\
             "All values in `resampled_obs_ids` MUST be in `orig_obs_id_array`."
         raise ValueError(msg)
